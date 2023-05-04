@@ -11,12 +11,19 @@ app.use(express.text({ type: 'text/html' }));
 
 // Healthcheck endpoint
 app.get('/', (req, res) => {
+  console.log('/')
   res.status(200).send({ status: 'ok' });
 });
 
 const api = express.Router();
 
 api.get('/hello', (req, res) => {
+  res.status(200).send({ message: 'hello world' });
+});
+
+api.post('/test', (req, res) => {
+  console.log('POST /test')
+  console.log(req.body)
   res.status(200).send({ message: 'hello world' });
 });
 
